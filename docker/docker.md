@@ -1,8 +1,16 @@
 [docker doc](https://docs.docker.com/docker-hub/)
 
+## 容器技术
+
+容器技术可以充分利用宿主机的内核, 只需要把需要运行的程序和环境打包成一个容器, 容器在宿主机的内核上运行 
+
+- 容器没有自己的内核, 这点和虚拟机不同
+
 # Docker 简介
 
-docker 可以帮助你快速设置环境😁
+docker 可以帮助你快速设置环境😁, 解决不同设备(运行环境)的配置环境问题
+
+- 有了 docker 可以实现 DevOps
 
 docker 是 go 开发的
 
@@ -10,9 +18,11 @@ docker 的三个重要概念:
 
 - image
 - container
-- 
+  - docker 可以通过容器技术, 独立运行一个或一组应用, 容器通过镜像创建
 
-对于Docker镜像来说，如果不显式指定TAG，则默认会选择latest标签，这会下载仓库中最新版本的镜像。
+- repository
+
+对于 Docker 镜像来说，如果不显式指定TAG，则默认会选择latest标签，这会下载仓库中最新版本的镜像。
 
 ```shell
 # 如果不显示指定 tag, 会下载最新的 latest 版本, 即 ubuntu:latest

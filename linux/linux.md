@@ -24,6 +24,28 @@ ulimit -SHn
 
 `/etc/re.local` 是 linux 的开机启动文件, 可以在里面设置无法永久修改的操作, 例如设置 file handle
 
+## os-release
+
+似乎是云服务器上才有的, 可以获取到自己的当前服务器版本的一些信息
+
+```shell
+vim /etc/os-release
+NAME="Ubuntu"
+VERSION="20.04.1 LTS (Focal Fossa)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 20.04.1 LTS"
+VERSION_ID="20.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
+```
+
+
+
 ## limits.conf
 
 `/etc/security/limits.conf` linux 的限制文件

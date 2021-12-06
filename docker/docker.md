@@ -228,3 +228,260 @@ docker logs [OPTIONS] container
 docker logs -tf --tail 10 container
 ```
 
+查看容器内部进程信息
+
+```shell
+docker top container
+```
+
+查看镜像的源数据(详细信息)
+
+```shell
+# 查看一个镜像的详细信息
+docker inspect container
+[
+    {
+    		# 平常见的 id 只是源 id 的一部分
+        "Id": "9ec935c01b3ef765f1ab13389aad435c7254e1bdeeab9fdfda129741affd30c3",
+        "Created": "2021-12-05T13:05:54.903115771Z",
+        "Path": "/docker-entrypoint.sh",
+        "Args": [
+            "nginx",
+            "-g",
+            "daemon off;"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 154222,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2021-12-05T13:05:55.218862322Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:ea335eea17ab984571cd4a3bcf90a0413773b559c75ef4cda07d0ce952b00291",
+        "ResolvConfPath": "/var/lib/docker/containers/9ec935c01b3ef765f1ab13389aad435c7254e1bdeeab9fdfda129741affd30c3/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/9ec935c01b3ef765f1ab13389aad435c7254e1bdeeab9fdfda129741affd30c3/hostname",
+        "HostsPath": "/var/lib/docker/containers/9ec935c01b3ef765f1ab13389aad435c7254e1bdeeab9fdfda129741affd30c3/hosts",
+        "LogPath": "/var/lib/docker/containers/9ec935c01b3ef765f1ab13389aad435c7254e1bdeeab9fdfda129741affd30c3/9ec935c01b3ef765f1ab13389aad435c7254e1bdeeab9fdfda129741affd30c3-json.log",
+        "Name": "/elated_khorana",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "host",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "KernelMemory": 0,
+            "KernelMemoryTCP": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/2879ec739fdb61186c372f2720091925cf3f8144f2344e0cf2fe6dc68b6ce4dd-init/diff:/var/lib/docker/overlay2/bd1950851dc8a212b1543d9dc8c67d9cfc68146f40320b694453c0782aea347b/diff:/var/lib/docker/overlay2/36b05a86e9ca554bec111058c0b6d109aceb4f20e8ed86c46c1467d2f4fd7ef0/diff:/var/lib/docker/overlay2/70647e75cf7fa88a22333358919d506c379d4e9cf86f9282e3f70b97a9e37f96/diff:/var/lib/docker/overlay2/f39febd1ca24eb7e32ec4f265772f7deb719aee1ec3c2e076c54a7bbeffc1cdb/diff:/var/lib/docker/overlay2/345d190b9d8bccc7b5bb53f632564351d1a0d244a7bca41dcc7bf03425392e2d/diff:/var/lib/docker/overlay2/638831b8bc920f0d6adadcf4c38d4efbf0adba46900c2824903a1349e3efa200/diff",
+                "MergedDir": "/var/lib/docker/overlay2/2879ec739fdb61186c372f2720091925cf3f8144f2344e0cf2fe6dc68b6ce4dd/merged",
+                "UpperDir": "/var/lib/docker/overlay2/2879ec739fdb61186c372f2720091925cf3f8144f2344e0cf2fe6dc68b6ce4dd/diff",
+                "WorkDir": "/var/lib/docker/overlay2/2879ec739fdb61186c372f2720091925cf3f8144f2344e0cf2fe6dc68b6ce4dd/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "9ec935c01b3e",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "80/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NGINX_VERSION=1.21.4",
+                "NJS_VERSION=0.7.0",
+                "PKG_RELEASE=1~bullseye"
+            ],
+            "Cmd": [
+                "nginx",
+                "-g",
+                "daemon off;"
+            ],
+            "Image": "nginx",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "maintainer": "NGINX Docker Maintainers <docker-maint@nginx.com>"
+            },
+            "StopSignal": "SIGQUIT"
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "b16131c77a15f9942bc894dc86a748922900a184705f748605885d543489f8fc",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "80/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/b16131c77a15",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "d28fbd3a3c16858cf39d37486c0a16010ca9947771428509379980df98494572",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.2",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "02:42:ac:11:00:02",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "2d1e18bd767915be0a222d1f92ff6726750d4d3a6825164b81eff9003ba24413",
+                    "EndpointID": "d28fbd3a3c16858cf39d37486c0a16010ca9947771428509379980df98494572",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:11:00:02",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+```
+
+### 进入容器
+
+docker exec
+
+```shell
+docker exec -it container /bin/bash
+
+# docker exec 进入容器后会开启一个新的终端, 可以执行各种操作
+# 相对于 docker attach 比较常用
+```
+
+docker attach 
+
+```shell
+docker attach container
+
+# docker 进入容器正在执行的终端, 你可以通过这种方式查看运行时打印在终端的日志
+```
+
+### 操作文件
+
+docker cp
+
+```shell
+# 将容器内的文件拷贝到主机中
+docker cp container:path 主机路径
+```
+

@@ -2,7 +2,7 @@
 
 [docker-hub](https://registry.hub.docker.com)
 
-## 容器技术
+# 容器技术
 
 容器技术可以充分利用宿主机的内核, 只需要把需要运行的程序和环境打包成一个容器, 容器在宿主机的内核上运行 
 
@@ -163,6 +163,12 @@ docker run -it centos /bin/bash
 
 # 退出容器
 exit
+
+# 部署 nginx
+docker run -d --name nginx01 -p 80:80 nginx
+
+# -rm 表示运行完后就删除容器
+docker run -it -rm tomcat:9.0
 ```
 
 ### docker ps
@@ -484,4 +490,23 @@ docker cp
 # 将容器内的文件拷贝到主机中
 docker cp container:path 主机路径
 ```
+
+# 可视化工具
+
+## portainer
+
+安装
+
+```shell
+docker run -d -p 8088:9000 --restart=always -v /var/run/docker.sock:/var/run/docker.sock \
+--privileged=true portainer/portainer
+```
+
+[百闻不如一见](http://120.26.58.150:8088/#/home)
+
+# Docker 镜像
+
+镜像是一种轻量级, 可执行的独立的软件包, 用来打包软件环境和基于运行环境开发的软件, 镜像包含了某个软件所需的所有内容, 包括代码, 运行时依赖的库, 环境变量和配置文件
+
+- DockerFile!
 

@@ -237,11 +237,113 @@ ln -s f1 f2
 ifconfig
 ```
 
+# Vim
+
+vim 主要记住各种命令就行, 怎么方便怎么来
+
+## Vim 模式
+
+Vim 有三种模式:
+
+- 命令模式 command mode
+- 输入模式 insert mode
+- 底线命令模式 last line mode
+
+刚进入 vim 时就是命令模式, 通过按键进行各种操作:
+
+- i 切换到输入模式
+- x 删除当前光标所处的字符
+- : 进入底线命令模式
+- Esc: 退出输入模式
+
+常用命令:
+
+```shell
+# 到文本的头一行
+gg
+# 到文本的最后一行
+G
+# 移动到屏幕的第一行
+H
+# 移动到屏幕的中间行
+M
+# 移动到屏幕最下方的一行
+L
+# 删除当前行
+dd
+# n 为数字, 表示向下移动 n 行
+n+enter
+```
+
+底线命令
+
+```shell
+# w 是保存, q是退出, wq即保存并退出
+:wq
+# 删除第 n 行
+:nd
+
+# 显示行号
+:set nu
+# 不显示行号
+:set nonu
+```
+
+# 账号管理
+
+设置不同的账号可以更好的进行资源的控制和安全管理
+
+```shell
+# 添加用户
+useradd -[] username
+-m : 自动创建主目录 即 /home/username
+-c : comment 添加注释性
+-d : 目录 指定用户主目录路径，如果此目录不存在，则同时使用 -m 选项，可以创建主目录
+-g : 用户组 指定用户所属的用户组
+-G : 用户组，用户组 指定用户所属的附加组
+-s : Shell文件 指定用户的登录Shell
+-u : 用户号 指定用户的用户号，如果同时有-o选项，则可以重复使用其他用户的标识号
+
+# 删除用户
+# 删除用户即将 /etc/passwd 用户信息删除掉
+userdel -r username
+-r : 删除用户的同时也删除用户的主目录
+
+# 修改用户
+# usermod 的选项同添加用户
+usermod -[] username
+usermod -d /xx # 切换用户主目录
+# 给用户设置密码
+passwd username 
+
+# 切换用户
+su user # 切换到 user 账户, 想要退出就 exit
+```
+
+# Ubuntu 修改 hostname
+
+查看主机名
+
+```shell
+# 查看主机名
+hostname
+```
+
+设置 /etc/cloud/cloud.cfg 的 preserve_hostname 属性设置为 true
+
+![image-20211217222930464](/Users/qr/note/linux/image-20211217222930464.png)
+
+通过 `hostnamectl set-hostname` 主机名设置新的主机名
+
+```shell
+hostnamectl set-hostname newHostname
+```
+
 
 
 # 文件句柄
 
-文件句柄也叫文件描述符, 原因是 Linux 系统的一个线程默认值为1024, 也就是说, 一个进程最多可以接受 1024 个 socket 连接
+文件句柄也叫文件描述符, 原因是 Linux 系统的一个线程默认值为1024, 也就是说, 默认情况下一个线程最多可以接受 1024 个 socket 连接
 
 - 百度了一下, 文件句柄似乎被翻译成 file handle , 个人理解成是用于操作文件的东西
 - 查看了下阿里云的默认 file handle 是 65535
@@ -287,7 +389,9 @@ VERSION_CODENAME=focal
 UBUNTU_CODENAME=focal
 ```
 
+# passwd
 
+/etc/passwd : 保存用户信息
 
 ## limits.conf
 

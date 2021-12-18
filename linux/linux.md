@@ -341,6 +341,28 @@ hostnamectl set-hostname newHostname
 
 
 
+# Ubuntu 安装 mysql
+
+ubuntu 本机安装软件 mysql
+
+```shell
+# 更新软件源
+sudo apt-get update
+# 安装mysql
+sudo apt-get install mysql-server
+```
+
+安装后默认是没有密码的, 可以在 "mysql" 库的 user 表中设置密码
+
+```shell
+# 查看信息
+select Host, authentication_string, user from user;
+# 修改密码
+ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'newPassword';  
+```
+
+
+
 # 文件句柄
 
 文件句柄也叫文件描述符, 原因是 Linux 系统的一个线程默认值为1024, 也就是说, 默认情况下一个线程最多可以接受 1024 个 socket 连接

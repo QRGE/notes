@@ -383,6 +383,27 @@ ulimit -SHn
 
 要彻底解除 Linux 系统的最大文件打开数量的限制，可以通过编辑 Linux 的极限配置文件`/etc/security/limits.conf`来做到
 
+# Screen
+
+## screen 的常用命令
+
+常用命令: 
+
+```shell
+# 新建一个叫 screenName 的session
+screen -S screenName
+# 列出所有创建的 screen
+screen -ls 
+# 进入到 screenName 这个session
+screen -r screenName 
+# 远程 detach 某个 session screenName
+screen -d screenName
+# 结束当前 session 并回到 screenName 这个 session
+screen -d -r screenName
+```
+
+
+
 # linux 的配置文件
 
 linux 的系统配置文件都是存放在 ``/etc/..`` 中的
@@ -411,10 +432,97 @@ VERSION_CODENAME=focal
 UBUNTU_CODENAME=focal
 ```
 
-# passwd
+## passwd
 
 /etc/passwd : 保存用户信息
 
 ## limits.conf
 
 `/etc/security/limits.conf` linux 的限制文件
+
+# 二进制文件
+
+运行二进制文件方式: 直接运行指定目录了
+
+```shell
+# 二进制文件一般都会放到 bin 里面, 直接运行就行了
+/opt/terraria/bin/XX 
+# 如果是当前文件可以加上 ./ 
+./XX
+```
+
+
+
+# Script
+
+## 基础知识
+
+终端以开头 $ 表示普通用户，# 表示管理员用户 root
+
+## HelloWorld
+
+第一个脚本
+
+```shell
+#! /bin/bash
+## author: qr
+## This is my first script
+date +"%Y-%m-%d %H:%M:%S" # date 格式化输出当前时间
+echo 'My first script'
+```
+
+
+
+# 泰拉瑞亚配置
+
+## 命令
+
+为了方便取的别名:
+
+```shell
+# 直接到泰拉瑞亚的根目录
+alias terraria='cd /opt/terraria/bin'
+# 根据配置文件运行游戏
+alias terraria-start='/opt/terraria/bin/TerrariaServer.bin.x86_64 -config /opt/terraria/config/terraria.conf'
+```
+
+
+
+```
+world=/opt/terraria/worlds/QR的世界.wld
+autocreate=3
+worldname=QR的世界
+difficulty=1
+maxplayers=8
+password=123456
+worldpath=/opt/terraria/worlds
+
+./TerrariaServer.bin.x86_64 -config /opt/terraria/config/terreria.conf
+```
+
+```shell
+help            Displays a list of commands.
+playing         Shows the list of players.
+clear           Clear the console window.
+exit            Shutdown the server and save.
+exit-nosave     Shutdown the server without saving.
+save            Save the game world.
+kick <player>   Kicks a player from the server.
+ban <player>    Bans a player from the server.
+password        Show password.
+password <pass> Change password.
+version         Print version number.
+time            Display game time.
+port            Print the listening port.
+maxplayers      Print the max number of players.
+say <words>     Send a message.
+motd            Print MOTD.
+motd <words>    Change MOTD.
+dawn            Change time to dawn.
+noon            Change time to noon.
+dusk            Change time to dusk.
+midnight        Change time to midnight.
+settle          Settle all water.
+seed            Displays the world seed.
+```
+
